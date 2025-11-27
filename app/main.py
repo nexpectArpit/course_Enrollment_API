@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from app.database import engine, Base
 from app.routers import students, courses, enrollments, grades
+from app import models
 
 # Create database tables
 Base.metadata.create_all(bind=engine)
