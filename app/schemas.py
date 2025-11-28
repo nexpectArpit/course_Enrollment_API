@@ -1,11 +1,11 @@
-from pydantic import BaseModel, EmailStr
+from pydantic import BaseModel
 from datetime import date
 from typing import Optional
 
 # Student schemas
 class StudentBase(BaseModel):
     name: str
-    email: EmailStr
+    email: str
 
 class StudentCreate(StudentBase):
     pass
