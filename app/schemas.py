@@ -1,19 +1,10 @@
-"""
-Pydantic Schemas - Request and Response models.
-
-These schemas define the structure of data for API requests and responses.
-They provide automatic validation and serialization.
-"""
-
 from pydantic import BaseModel
 from datetime import date
 from typing import Optional
 
-# Student schemas
 class StudentBase(BaseModel):
-    """Base schema for student with common fields."""
     name: str
-    email: str  # Using simple string for flexibility
+    email: str
 
 class StudentCreate(StudentBase):
     pass
