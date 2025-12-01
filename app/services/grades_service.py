@@ -33,9 +33,15 @@ def create_grade(db: Session, grade: GradeCreate):
     
     final_grade = calculate_final_grade(grade.marks)
     
-    grade_data = grade.model_dump()
-    grade_data['final_grade'] = final_grade
-    db_grade = grade_repo.create_grade(db, GradeCreate(**grade_data))
+    from app.models import Grade
+    db_grade = Grade(
+        enrollment_id=grade.enrollment_id,
+        marks=grade.marks,
+        final_grade=final_grade
+    )
+    db.add(db_grade)
+    db.commit()
+    db.refresh(db_grade)
     
     return db_grade
 

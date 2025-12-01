@@ -46,16 +46,15 @@ class EnrollmentResponse(EnrollmentBase):
         from_attributes = True
 
 # Grade schemas
-class GradeBase(BaseModel):
+class GradeCreate(BaseModel):
+    enrollment_id: int
+    marks: float
+
+class GradeResponse(BaseModel):
+    id: int
     enrollment_id: int
     marks: float
     final_grade: Optional[str] = None
-
-class GradeCreate(GradeBase):
-    pass
-
-class GradeResponse(GradeBase):
-    id: int
     
     class Config:
         from_attributes = True
