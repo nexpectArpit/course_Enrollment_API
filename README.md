@@ -2,6 +2,16 @@
 
 A FastAPI-based backend system for managing student course enrollments and grades.
 
+**Deployed Link(backend)**
+- https://course-enrollment-api.onrender.com
+
+**Note**  
+GET / is not defined, so the homepage shows “Not found”. Use endpoints like /students or /courses.
+
+**Database Hosting Note:**  
+Render gives only one free PostgreSQL instance and it expires quickly.  
+My other project already uses that free database, so this backend uses PostgreSQL from Neon for a stable connection.
+
 ## Tech Stack
 
 - **FastAPI**: Modern web framework for building APIs
@@ -10,7 +20,7 @@ A FastAPI-based backend system for managing student course enrollments and grade
 - **PostgreSQL**: Relational database
 - **uvicorn**: ASGI server
 - **psycopg2-binary**: PostgreSQL driver
-- **Python 3.12**: Programming language
+- **Python 3.11**: Programming language
 
 ## Project Architecture
 
@@ -87,7 +97,7 @@ course-enrollment-api/
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/nexpectArpit/ojt3Project.git
+git clone https://github.com/nexpectArpit/course-enrollment-api.git
 cd course-enrollment-api
 ```
 
@@ -109,9 +119,12 @@ pip install -r requirements.txt
 Create a `.env` file in the project root:
 
 ```env
-DATABASE_URL=postgresql://username:password@localhost:5432/course_enrollment_db
-```
+# Production (Neon)
+DATABASE_URL=your_neon_postgres_url
 
+# Local development
+# DATABASE_URL=postgresql://username:password@localhost:5432/course_enrollment_db
+```
 **Note**: Replace `username` and `password` with your PostgreSQL credentials.
 
 Create the database:
@@ -134,6 +147,17 @@ FastAPI provides automatic interactive documentation:
 
 - **Swagger UI**: http://localhost:8000/docs
 - **ReDoc**: http://localhost:8000/redoc
+
+### Deploy on Render
+
+Add Environment Variables:
+- DATABASE_URL = your_neon_postgres_url
+- PYTHON_VERSION = 3.11.9
+
+Start Command:
+```bash
+uvicorn app.main:app --host 0.0.0.0 --port $PORT
+```
 
 ## API Endpoints
 
