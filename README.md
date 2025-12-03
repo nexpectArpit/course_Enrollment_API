@@ -423,6 +423,18 @@ curl -X PUT http://localhost:8000/grades/2 \
 ```
 
 ## Testing with Postman
+- Add Student
+![Add Student](./screenshots/add_student.png)
+- Get Student
+![Get Student](./screenshots/get_student.png)
+- Add Course
+![Add Course](./screenshots/add_course.png)
+- Get Course
+![Get Course](./screenshots/get_course.png)
+- Enroll Student
+![Enroll Student](./screenshots/enroll_student.png)
+- Add Grade
+![Add Grade](./screenshots/add_grade.png)
 
 ### Setup Postman Collection
 
