@@ -3,7 +3,7 @@
 A FastAPI-based backend system for managing student course enrollments and grades.
 
 **Deployed Link(backend)**
-- https://course-enrollment-api.onrender.com
+- https://course-enrollment-api.onrender.com/docs
 
 **Note**  
 GET / is not defined, so the homepage shows “Not found”. Use endpoints like /students or /courses.
